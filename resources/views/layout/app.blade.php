@@ -1,0 +1,9 @@
+@include('layout.header')
+<body>
+  <section>
+    @yield('content')
+  </section>
+    @include('layout.js')
+    @yield('scripts')
+  </body>
+</html>
