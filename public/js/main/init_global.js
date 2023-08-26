@@ -2,6 +2,7 @@
 var idCard=1
 var forms=[]
 var header_form={}
+var detail_form=[]
 var person=0
 var generationlist=[]
 $(window).on('load', function() {

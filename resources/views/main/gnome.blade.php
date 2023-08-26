@@ -1,5 +1,25 @@
 @extends('layout.app')
 @section('content')
+<style>
+.modal.modal-fullscreen .modal-dialog {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  max-width: none; 
+}
+
+.modal.modal-fullscreen .modal-content {
+  height: auto;
+  height: 100vh;
+  border-radius: 0;
+  border: none; 
+}
+
+.modal.modal-fullscreen .modal-body {
+  overflow-y: auto; 
+}
+</style>
     <div class="container border-container mt-3">
       <div class="row">
         <div id="gnome-diagram" class="col-md-10 col-sm-12 diagram-body">
@@ -67,25 +87,25 @@
             </div>
             <div class="modal-body">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="pattern" id="pattern1">
+                <input class="form-check-input" type="radio" name="pattern" id="pattern1" value="Autosomal Dominant">
                 <label class="form-check-label" for="pattern1">
                   Autosomal Dominant
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="pattern" id="pattern2" checked>
+                <input class="form-check-input" type="radio" name="pattern" id="pattern2" value="Autosomal Recessive" checked>
                 <label class="form-check-label" for="pattern2">
                   Autosomal Recessive
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="pattern" id="pattern3" checked>
+                <input class="form-check-input" type="radio" name="pattern" id="pattern3" value="X-linked Dominant">
                 <label class="form-check-label" for="pattern2">
                     X-linked Dominant
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="pattern" id="pattern4" checked>
+                <input class="form-check-input" type="radio" name="pattern" id="pattern4" value="X-linked Recessive">
                 <label class="form-check-label" for="pattern2">
                     X-linked Recessive
                 </label>
@@ -93,6 +113,22 @@
               <div class="form-group float-right">
                   <button class="small-btn-primary" onClick=savePattern()>Submit</button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Script Modal -->
+      <div id="scriptModal" class="modal modal-fullscreen" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Script</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div id="script"></div>
             </div>
           </div>
         </div>
@@ -105,4 +141,5 @@
 <script src="{{ asset('js/main/modal_menu_generate.js')}}"></script>
 <script src="{{ asset('js/main/modal_header.js')}}"></script>
 <script src="{{ asset('js/main/init_global.js')}}"></script>
+<script src="{{ asset('js/main/script.js')}}"></script>
 @endsection

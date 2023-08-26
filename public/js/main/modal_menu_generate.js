@@ -185,6 +185,8 @@ function saveData(id){
         trait:$('#trait'+id).val(),
         childpoint:$('#childpoint'+id).val(),
         position:$('#position'+id).val(),
+        childvalUIFD:$('#childvalUIFD'+id).val()?parseInt($('#childvalUIFD'+id).val()):0,
+        childval:$('#childval'+id).val()?parseInt($('#childval'+id).val()):0
     }
     var action=addNode(data)
     if(!action){
@@ -221,7 +223,7 @@ function saveData(id){
             generateGenerationCard(numcard+1,'childpoint-'+data.numcard+"-"+data.idcard,totalCardGen++)
         }
     }
-    console.log(forms)
+    console.log(JSON.stringify(forms))
 }
 
 function getDetail(numcard,idcard,idmenu){
